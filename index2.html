@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Елена Жукова | Junior QA Engineer | Телекоммуникации → Тестирование ПО</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #e53e3e;
+            --telecom-color: #38a169;
+            --transition-color: #805ad5;
+            --light-color: #f7fafc;
+            --dark-color: #2d3748;
+            --gray-color: #718096;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--light-color);
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-dark {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+        }
+
+        .section-dark h2 {
+            color: var(--light-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .section-telecom {
+            background: linear-gradient(to right, #1a365d, #2c5282);
+            color: white;
+        }
+
+        .section-telecom h2 {
+            color: white;
+            border-bottom-color: var(--telecom-color);
+        }
+
+        .section-transition {
+            background: linear-gradient(to right, #2c5282, #553c9a);
+            color: white;
+        }
+
+        .section-transition h2 {
+            color: white;
+            border-bottom-color: var(--transition-color);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.8)), url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 12rem 0 8rem;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 3rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .btn-telecom {
+            background-color: var(--telecom-color);
+            border-color: var(--telecom-color);
+        }
+
+        .btn-telecom:hover {
+            background-color: transparent;
+            color: var(--telecom-color);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .highlight-telecom {
+            color: var(--telecom-color);
+            font-weight: 600;
+        }
+
+        .highlight-transition {
+            color: var(--transition-color);
+            font-weight: 600;
+        }
+
+        /* Transition Section */
+        .transition-container {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .transition-path {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .transition-path::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, var(--telecom-color), var(--transition-color), var(--secondary-color));
+            z-index: 1;
+        }
+
+        .path-point {
+            background-color: white;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .path-icon {
+            font-size: 2.5rem;
+        }
+
+        .telecom-icon {
+            color: var(--telecom-color);
+        }
+
+        .transition-icon {
+            color: var(--transition-color);
+        }
+
+        .qa-icon {
+            color: var(--secondary-color);
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .skill-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category {
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--telecom-color);
+        }
+
+        /* Education & Experience */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background: linear-gradient(to bottom, var(--telecom-color), var(--secondary-color));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .timeline-year {
+            position: absolute;
+            top: -15px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -10px;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid var(--secondary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+
+        .university {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .degree {
+            font-style: italic;
+            color: var(--gray-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            height: 200px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* AstraLinux Section */
+        .astra-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--telecom-color);
+        }
+
+        /* API Testing */
+        .api-testing-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .api-methods {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .method {
+            padding: 0.5rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .get { background-color: #d4edda; color: #155724; }
+        .post { background-color: #d1ecf1; color: #0c5460; }
+        .put { background-color: #fff3cd; color: #856404; }
+        .delete { background-color: #f8d7da; color: #721c24; }
+
+        /* Telecom Testing */
+        .telecom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .telecom-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 4px solid var(--telecom-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .contact-links a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .contact-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            margin-top: 1.5rem;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 18px;
+            }
+
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+            
+            .transition-path {
+                flex-direction: column;
+                gap: 3rem;
+            }
+            
+            .transition-path::before {
+                display: none;
+            }
+            
+            .path-connector {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.7rem;
+            }
+            
+            .hero {
+                padding: 8rem 0 5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+                transition: var(--transition);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 1.5rem 0;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .path-point {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .path-icon {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">QA<span>Engineer</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#transition">Переход в QA</a></li>
+                    <li><a href="#skills">Навыки</a></li>
+                    <li><a href="#education">Образование</a></li>
+                    <li><a href="#projects">Проекты</a></li>
+                    <li><a href="#astralinux">AstraLinux</a></li>
+                    <li><a href="#api">API тестирование</a></li>
+                    <li><a href="#email">Почта Яндекс</a></li>
+                    <li><a href="#telecom">Телекоммуникации</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>[] | Junior QA Engineer</h1>
+            <p>Профессионал с фундаментальным техническим образованием в области телекоммуникаций, осуществляющий переход в сферу QA/Тестирования ПО. Объединяю опыт проектирования сложных систем с современными подходами к обеспечению качества программного обеспечения.</p>
+            <a href="#about" class="btn">Подробнее обо мне</a>
+            <a href="#transition" class="btn btn-outline">Мой путь в QA</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>Личное представление</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://avatars.githubusercontent.com/u/238029886?v=4&auto=format&fit=crop&w=500&q=80" alt="Фото Елена Жукова" class="profile-img">
+                </div>
+                <div class="about-text">
+                    <h3>Здравствуйте, я Елена Жукова</h3>
+                    <p>Я — <span class="highlight-telecom">инженер с многолетним техническим бэкграундом</span>, который сейчас строит карьеру в области тестирования программного обеспечения. Мой профессиональный путь начался в телекоммуникационной отрасли, где я получил фундаментальное образование и опыт работы со сложными системами.</p>
+                    <p>Сегодня я применяю свои <span class="highlight">аналитические способности, системное мышление и внимание к деталям</span> в сфере QA. Мой опыт в телекоммуникациях научил меня понимать, как работают сложные системы, что является неоценимым навыком для тестирования программного обеспечения.</p>
+                    <p>Я глубоко убежден, что мой технический бэкграунд, сочетающийся с недавно приобретенными знаниями в области тестирования ПО, позволяет мне предлагать уникальный подход к обеспечению качества — подход, основанный на глубоком понимании системных взаимосвязей и инженерной точности.</p>
+                    <p><strong>Мое преимущество:</strong> умение видеть картину целиком, понимать взаимосвязи в сложных системах, настойчивость в поиске причин проблем и способность к быстрому освоению новых технологий.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <section id="transition" class="section-transition">
+        <div class="container">
+            <div class="transition-container">
+                <h2>Мой путь: от телекоммуникаций к QA инжинирингу</h2>
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Мой профессиональный путь отражает переход от классической инженерии связи к современной IT-специальности, сохраняя при этом общую техническую основу и системный подход.</p>
+                
+                <div class="transition-path">
+                    <div class="path-point">
+                        <div class="path-icon telecom-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                    </div>
+                    <div class="path-connector">
+                        <i class="fas fa-arrow-right" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="path-point">
+                        <div class="path-icon transition-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                    </div>
+                    <div class="path-connector">
+                        <i class="fas fa-arrow-right" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <div class="path-point">
+                        <div class="path-icon qa-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                    <div style="text-align: center; width: 33%;">
+                        <h4>Телекоммуникации</h4>
+                        <p>Фундаментальное образование и опыт в проектировании и анализе сложных систем связи</p>
+                    </div>
+                    <div style="text-align: center; width: 33%;">
+                        <h4>Переход</h4>
+                        <p>Освоение современных IT-технологий, инструментов тестирования и методологий разработки ПО</p>
+                    </div>
+                    <div style="text-align: center; width: 33%;">
+                        <h4>QA Инжиниринг</h4>
+                        <p>Применение системного подхода и технических знаний для обеспечения качества ПО</p>
+                    </div>
+                </div>
+                
+                <div style="background-color: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 8px; margin-top: 3rem;">
+                    <h3>Почему тестирование ПО?</h3>
+                    <p>Тестирование программного обеспечения для меня — это естественное продолжение инженерной деятельности. Как и в телекоммуникациях, здесь требуется аналитическое мышление, понимание системных взаимосвязей, внимание к деталям и настойчивость в поиске причин неисправностей. Мой технический бэкграунд позволяет мне:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li>Быстро понимать архитектуру сложных систем</li>
+                        <li>Анализировать требования с инженерной точностью</li>
+                        <li>Предвидеть возможные точки отказа в системе</li>
+                        <li>Эффективно коммуницировать с разработчиками на техническом языке</li>
+                        <li>Применять системный подход к тест-дизайну</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-dark">
+        <div class="container">
+            <h2>Базовые знания и навыки</h2>
+            
+            <div class="skill-category">
+                <h3>Основы программирования и веб-технологии</h3>
+            </div>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <h3>HTML/CSS</h3>
+                    <p>Понимание структуры веб-страниц, способность анализировать DOM-структуру для тестирования веб-приложений, базовые навыки верстки.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-php"></i>
+                    </div>
+                    <h3>PHP основы</h3>
+                    <p>Базовое понимание синтаксиса, возможность читать и анализировать простой код, понимание принципов работы серверной части веб-приложений.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Postman</h3>
+                    <p>Создание и выполнение запросов, организация коллекций, написание простых тестов, работа с переменными и окружениями, тестирование REST API.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>Git/GitHub</h3>
+                    <p>Базовые команды Git, работа с репозиториями, понимание workflow, создание issue и pull requests для отслеживания дефектов.</p>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Тестирование ПО</h3>
+            </div>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Ручное тестирование</h3>
+                    <p>Тест-дизайн, создание тест-кейсов и чек-листов, тестирование UI/UX, кросс-браузерное и кросс-платформенное тестирование.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Тестовая документация</h3>
+                    <p>Составление bug reports, тест-планов, чек-листов, тест-кейсов. Опыт работы с TestRail и аналогичными системами.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Тестирование API</h3>
+                    <p>Тестирование REST API, проверка статус-кодов, структуры ответов, обработки ошибок, работа с различными типами запросов.</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Тестирование почтовых сервисов</h3>
+                    <p>Опыт тестирования функциональности почтовых сервисов, работы с вложениями, фильтрами, настройками безопасности.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Образование</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2009</div>
+                        <div class="university">Сибирский государственный университет телекоммуникаций и информатики (СибГУТИ), г. Новосибирск</div>
+                        <div class="degree">Сети связи и системы коммутации</div>
+                        <p>Получил фундаментальное образование в области телекоммуникаций, изучив принципы построения сетей связи, системы коммутации, передачу данных, телекоммуникационные протоколы. Освоил проектирование и анализ телекоммуникационных систем.</p>
+                        <p><strong>Ключевые дисциплины:</strong> Цифровые системы передачи, Сети связи и системы коммутации, Теория телетрафика, Программирование для телекоммуникаций, Электромагнитная совместимость.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1993</div>
+                        <div class="university">Санкт-Петербургский национальный исследовательский университет информационных технологий, механики и оптики (ИТМО), г. Санкт-Петербург</div>
+                        <div class="degree">Автоматика и управление в технических системах</div>
+                        <p>Получил образование в области автоматизированных систем управления, что заложило основы системного мышления и понимания принципов работы сложных технических систем. Изучил микропроцессорную технику, системы автоматического управления, моделирование систем.</p>
+                        <p><strong>Ключевые дисциплины:</strong> Системы автоматического управления, Микропроцессорные системы, Моделирование систем, Интеллектуальные системы управления, Теория автоматического регулирования.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023-2024</div>
+                        <div class="university">Курсы и самообразование в области QA/Тестирования ПО</div>
+                        <div class="degree">Современные инструменты и методологии тестирования</div>
+                        <p>Прошел специализированные курсы по тестированию ПО, изучил современные инструменты и методологии. Практиковался в создании тест-кейсов, баг-репортов, тестировании API, работе с баг-трекинговыми системами.</p>
+                        <p><strong>Изученные темы:</strong> Основы тестирования ПО, Тест-дизайн и техники тестирования, Работа с Postman и Swagger, SQL для тестировщиков, Основы автоматизации тестирования, Работа с Git и GitHub.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-telecom">
+        <div class="container">
+            <h2>Опыт работы над проектами</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; max-width: 900px; margin-left: auto; margin-right: auto;">В рамках подготовки к карьере QA инженера я работал над несколькими учебными проектами, где применял полученные знания на практике.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="project-content">
+                        <h3>Тестирование веб-приложения для онлайн-магазина</h3>
+                        <p>Учебный проект по тестированию интернет-магазина. Провел функциональное тестирование, тестирование UI/UX, составил тест-кейсы и чек-листы, обнаружил и зарегистрировал 15+ дефектов.</p>
+                        <div class="project-tags">
+                            <span class="tag">Ручное тестирование</span>
+                            <span class="tag">Тест-кейсы</span>
+                            <span class="tag">Bug Reporting</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="project-content">
+                        <h3>Тестирование мобильного приложения</h3>
+                        <p>Провел тестирование мобильного приложения на платформах iOS и Android. Проверил совместимость, производительность и удобство использования. Протестировал различные сценарии взаимодействия пользователя с приложением.</p>
+                        <div class="project-tags">
+                            <span class="tag">Мобильное тестирование</span>
+                            <span class="tag">Usability</span>
+                            <span class="tag">Кросс-платформенность</span>
+                            <span class="tag">Производительность</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="project-content">
+                        <h3>Пет-проект: Тестирование API</h3>
+                        <p>Создал коллекцию запросов в Postman для тестирования REST API учебного веб-сервиса. Написал простые автотесты для проверки статус-кодов и структуры ответов. Работал с аутентификацией и параметрами запросов.</p>
+                        <div class="project-tags">
+                            <span class="tag">API Testing</span>
+                            <span class="tag">Postman</span>
+                            <span class="tag">REST</span>
+                            <span class="tag">Автотесты</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AstraLinux Section -->
+    <section id="astralinux">
+        <div class="container">
+            <h2>Администрирование AstraLinux</h2>
+            <div class="api-testing-content">
+                <p>Имею опыт работы с операционной системой AstraLinux Special Edition — защищенной ОС для работы с государственной тайной и конфиденциальной информацией. Изучение AstraLinux позволило мне понять особенности тестирования приложений в защищенных средах.</p>
+                
+                <h3>Основные навыки работы с AstraLinux:</h3>
+                
+                <div class="astra-features">
+                    <div class="feature">
+                        <h4>Установка и настройка</h4>
+                        <p>Опыт установки AstraLinux, настройки пользователей и групп, управления правами доступа, работы с репозиториями.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Работа в терминале</h4>
+                        <p>Владение базовыми командами Linux, работа с файловой системой, управление процессами, настройка системных служб.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Безопасность</h4>
+                        <p>Понимание принципов безопасности ОС, работа с системой разграничения доступа, настройка межсетевого экрана, аудит безопасности.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Сетевая настройка</h4>
+                        <p>Настройка сетевых интерфейсов, работа с сетевыми утилитами, диагностика сетевых проблем, настройка сетевых служб.</p>
+                    </div>
+                </div>
+                
+                <p>Знание AstraLinux позволяет мне лучше понимать особенности тестирования приложений, работающих в защищенных средах, и учитывать требования информационной безопасности при тестировании ПО. Этот опыт особенно ценен для проектов, связанных с государственными структурами и организациями, работающими с конфиденциальной информацией.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Testing Section -->
+    <section id="api" class="section-dark">
+        <div class="container">
+            <h2>Тестирование API</h2>
+            <div style="background-color: rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 2rem;">
+                <p>Имею практический опыт тестирования REST API с использованием Postman. В рамках учебных проектов работал с различными типами запросов, проверял корректность ответов, статус-коды, структуру данных и обработку ошибок.</p>
+                
+                <h3>Основные навыки в тестировании API:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Создание и отправка HTTP-запросов (GET, POST, PUT, DELETE, PATCH)</li>
+                    <li>Работа с параметрами запросов (query params, path variables, headers, body)</li>
+                    <li>Настройка заголовков (headers) и тела запросов (JSON, XML, form-data)</li>
+                    <li>Проверка статус-кодов ответов (200, 201, 400, 401, 403, 404, 500 и др.)</li>
+                    <li>Валидация структуры ответов (JSON Schema), проверка типов данных и значений</li>
+                    <li>Работа с аутентификацией (Bearer token, Basic auth, OAuth 2.0)</li>
+                    <li>Написание простых тестов на JavaScript в Postman</li>
+                    <li>Организация запросов в коллекции, использование переменных и окружений</li>
+                    <li>Тестирование граничных значений и негативных сценариев</li>
+                </ul>
+                
+                <div class="api-methods">
+                    <div class="method get">GET</div>
+                    <div class="method post">POST</div>
+                    <div class="method put">PUT</div>
+                    <div class="method delete">DELETE</div>
+                    <div class="method patch">PATCH</div>
+                </div>
+                
+                <p>Пример тестирования: проверка эндпоинта получения информации о пользователе. Отправка GET-запроса с корректным ID пользователя должна возвращать статус 200 и данные пользователя в JSON-формате. Отправка запроса с несуществующим ID должна возвращать статус 404 с соответствующим сообщением об ошибке.</p>
+                
+                <p style="margin-top: 1.5rem;">Мой опыт в телекоммуникациях, где работа с протоколами и интерфейсами является повседневной практикой, помогает мне быстро осваивать принципы работы API и эффективно тестировать их.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Testing Section -->
+    <section id="email">
+        <div class="container">
+            <h2>Тестирование почтового сервиса Яндекс</h2>
+            <div class="api-testing-content">
+                <p>Провел исследовательское и функциональное тестирование почтового сервиса Яндекс.Почта, включая проверку функциональности, удобства использования, безопасности и кросс-браузерной совместимости.</p>
+                
+                <h3>Проверенные аспекты почтового сервиса:</h3>
+                
+                <div class="astra-features">
+                    <div class="feature">
+                        <h4>Основная функциональность</h4>
+                        <p>Отправка и получение писем, работа с вложениями различных форматов и размеров, создание черновиков, работа с шаблонами писем.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Организация писем</h4>
+                        <p>Создание и управление папками, метками, фильтрами. Поиск писем по различным критериям, работа с архивом, настройка правил обработки входящих писем.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Настройки и безопасность</h4>
+                        <p>Настройки учетной записи, безопасность входа (двухфакторная аутентификация), настройки пересылки, автоответчика, управление подписками.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>Кросс-браузерность</h4>
+                        <p>Тестирование в Chrome, Firefox, Safari, Edge. Проверка адаптивности на различных устройствах (десктоп, планшет, мобильные устройства).</p>
+                    </div>
+                </div>
+                
+                <h3>Обнаруженные проблемы и рекомендации:</h3>
+                <p>В процессе тестирования выявлено несколько незначительных UI-проблем, таких как несоответствие отступов в некоторых элементах интерфейса в определенных браузерах и некорректное отображение tooltip-ов при определенных настройках масштабирования страницы. Все найденные проблемы были документированы в формате bug report с четким описанием шагов воспроизведения, фактического и ожидаемого результата.</p>
+                
+                <p>На основе проведенного тестирования сформулировал рекомендации по улучшению пользовательского опыта, включая предложения по оптимизации процесса настройки фильтров для писем и добавлению дополнительных шаблонов для быстрого ответа.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telecom Testing Section -->
+    <section id="telecom" class="section-telecom">
+        <div class="container">
+            <h2>Тестирование систем телекоммуникаций</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">Благодаря образованию в области сетей связи и систем коммутации имею фундаментальные знания для тестирования телекоммуникационного ПО и оборудования. Мое понимание принципов работы сетей связи позволяет мне эффективно тестировать приложения, связанные с телекоммуникациями.</p>
+            
+            <div class="telecom-grid">
+                <div class="telecom-item">
+                    <h3>Понимание телекоммуникационных систем</h3>
+                    <p>Знание принципов работы сетей связи, систем коммутации, передачи данных. Понимание архитектуры телекоммуникационных систем и протоколов связи (TCP/IP, SIP, RTP, SS7). Опыт работы с сетевым оборудованием.</p>
+                </div>
+                <div class="telecom-item">
+                    <h3>Тестирование сетевых приложений</h3>
+                    <p>Способность тестировать приложения, работающие в сетевой среде: проверка работы при разной нагрузке, тестирование устойчивости к сбоям сети, проверка восстановления после потери связи, тестирование производительности в различных сетевых условиях.</p>
+                </div>
+                <div class="telecom-item">
+                    <h3>Анализ требований для телеком-проектов</h3>
+                    <p>Умение анализировать технические требования для телекоммуникационных систем, понимание специфики отрасли и нормативных требований. Опыт работы с технической документацией и стандартами в области связи.</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 3rem; background-color: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 8px;">
+                <h3>Области применения знаний в телекоммуникациях для QA:</h3>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                    <li>Тестирование VoIP-приложений и сервисов (IP-телефония, видеоконференции)</li>
+                    <li>Тестирование программного обеспечения для сетевого оборудования (маршрутизаторы, коммутаторы)</li>
+                    <li>Тестирование систем мониторинга сетей связи (NMS, OSS)</li>
+                    <li>Тестирование биллинговых систем для телеком-операторов</li>
+                    <li>Тестирование мобильных приложений с учетом особенностей сотовых сетей (2G/3G/4G/5G)</li>
+                    <li>Тестирование систем безопасности телекоммуникационных сетей</li>
+                    <li>Тестирование IoT-решений, работающих через сотовые сети</li>
+                </ul>
+                
+                <p style="margin-top: 1.5rem;">Мое образование в СибГУТИ и ИТМО дает мне уникальное сочетание знаний в области телекоммуникаций и автоматизированных систем, что позволяет подходить к тестированию сложного ПО с пониманием предметной области и технических особенностей реализации. Я могу стать ценным специалистом в командах, разрабатывающих решения для телекоммуникационной отрасли или сложные распределенные системы.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2 style="border: none; color: white; margin-bottom: 1rem;">Контакты</h2>
+            <p style="max-width: 600px; margin: 0 auto 1.5rem;">Я открыт для предложений о junior-позициях в области QA/Тестирования ПО, особенно в проектах, связанных с телекоммуникациями, сложными системами или государственными структурами. Готов внести свой вклад в обеспечение качества ваших продуктов.</p>
+            <div class="contact-links">
+                <a href="alenajuk74@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/alenajuk74-sketch" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>                
+                <a href="tel:+79821127811" title="Телефон"><i class="fas fa-phone"></i></a>
+                <a href="https://t.me/alenajuk74" target="_blank" title="Telegram"><i class="fab fa-telegram"></i></a>
+            </div>
+            <p class="copyright">© 2024 Елена Жукова. Junior QA Engineer с фундаментальным техническим образованием</alenajuk74-sketch </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 50) {
+                header.style.backgroundColor = 'rgba(26, 54, 93, 0.95)';
+                header.style.padding = '1rem 0';
+            } else {
+                header.style.backgroundColor = 'var(--primary-color)';
+                header.style.padding = '1.5rem 0';
+            }
+        });
+        
+        // Add animation to skill items on scroll
+        const skillItems = document.querySelectorAll('.skill-item');
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        skillItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(item);
+        });
+        
+        // Add animation to timeline items
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-30px)';
+            item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        const timelineObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        timelineItems.forEach(item => {
+            timelineObserver.observe(item);
+        });
+    </script>
+</body>
+</html>
